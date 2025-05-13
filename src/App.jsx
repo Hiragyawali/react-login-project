@@ -7,6 +7,8 @@ import Home from './pages/Home';
 import CreateBlog from './pages/CreateBlog';
 import Dasgboarad from './pages/Dasgboarad';
 import Footer from './components/Footer'; 
+import Singleblog from './pages/Singleblog';
+import Myblog from './pages/Myblog';
 
 function App() {
   return (
@@ -20,6 +22,20 @@ function App() {
             </ProtectedRoute>
           }
         />
+         <Route
+          path="/singleblogs/:id"
+          element={
+            <ProtectedRoute>
+              <Singleblog/>
+            </ProtectedRoute>
+          }
+        />
+
+        <Route path='/myblog' element={
+          <ProtectedRoute>
+           <Myblog/>
+          </ProtectedRoute> 
+        } />
          <Route path="create-blog" element={
           <ProtectedRoute>
             <CreateBlog />

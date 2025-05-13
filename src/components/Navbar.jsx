@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { AuthContext } from '../context/AuthContext';
 import { Menu, X } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom'; 
 
 const Navbar = () => {
   const { user, logout } = useContext(AuthContext);
@@ -16,7 +16,7 @@ const Navbar = () => {
   return (
     <nav className="bg-blue-600 text-white px-6 py-4 shadow-md sticky top-0 z-10">
       <div className="container mx-auto flex justify-between items-center">
-        <div className="text-xl font-bold cursor-pointer">MyWebsite</div>
+        <div className="text-xl font-bold cursor-pointer hidden md:block">MyWebsite</div>
 
         <div className="md:hidden">
           <button onClick={() => setMenuOpen(!menuOpen)}>
@@ -36,13 +36,13 @@ const Navbar = () => {
             <a href="#" className="hover:text-red-200 transition duration-200">About</a>
           </li>
           <li>
-            <a href="#" className="hover:text-red-200 transition duration-200">Services</a>
+            <Link to="/myblog" className="hover:text-red-200 transition duration-200">
+              Myblog
+            </Link>
           </li>
-
           <li className="text-sm text-gray-200">
             {user?.name ?? 'Guest'}
           </li>
-
           {user && (
             <li>
               <button
